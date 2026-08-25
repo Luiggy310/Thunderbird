@@ -1,17 +1,15 @@
 # Thunderbird
 
-Animation project repository.
+Thanks for checking out our project! If you are a student working with us, We're so excited to meet you, and get to see the awesome stuff you can make!
 
-This repo uses **Git LFS** to version large binaries (scene files, textures, audio,
-footage). Git itself only stores small text pointers; the real bytes live on the
-LFS server and download when you check a branch out.
+Thunderbird is an indie animation done by UVU students. 
+[description of what it actually is here]
 
 ---
 
 ## First-time setup
 
-**You must install Git LFS before cloning.** Without it you'll get 3-line text
-files where your Maya scenes and comps should be.
+**You must install Git LFS before cloning.** Without it Maya scenes will be lost.
 
 **macOS**
 
@@ -44,7 +42,7 @@ git lfs pull
 ## Working on scene files
 
 Maya, 3ds Max, Cinema 4D, After Effects, Premiere, and Photoshop files **cannot be
-merged**. If two people edit the same scene, one of them loses their work — Git has
+merged**. ONLY ONE PERSON CAN WORK ON THESE FILES AT A TIME! Git has
 no way to combine them.
 
 To prevent that, these file types are marked `lockable`. They appear **read-only**
@@ -65,7 +63,7 @@ git lfs locks --verify           # check before pushing
 git lfs unlock --force <file>    # steal a stale lock (coordinate first!)
 ```
 
-**Rule of thumb:** lock it, do your work, push, unlock. Don't sit on a lock overnight.
+**Rule of thumb:** lock it, do your work, push, unlock.
 
 ---
 
@@ -90,35 +88,3 @@ renders/           LOCAL ONLY — gitignored, see below
 scripts/           pipeline scripts, expressions, tools
 docs/              notes, breakdowns, schedules
 ```
-
----
-
-## What is *not* in this repo
-
-**Renders and image sequences are gitignored.** They're reproducible from the scene
-files, and an image sequence will exhaust our LFS storage quota almost immediately.
-Put finished renders in shared storage (Drive, Dropbox, a NAS) and keep `renders/`
-as your local scratch space.
-
-Also ignored: simulation and render caches, After Effects auto-saves, Premiere media
-cache and preview files, Maya incremental saves, and OS junk (`.DS_Store`, `Thumbs.db`).
-
-See [.gitignore](.gitignore) for the full list, and [.gitattributes](.gitattributes)
-for exactly which extensions go to LFS.
-
----
-
-## Storage budget
-
-GitHub's free LFS tier is **1 GB storage and 1 GB/month bandwidth**, and additional
-capacity is $5/month per 50 GB. That's the reason renders stay out of the repo.
-
-Before committing something unusually large, check what you're about to add:
-
-```bash
-git lfs status                   # what's staged for LFS
-du -sh <file>                    # how big is it
-```
-
-If the project grows past a few hundred GB, we should move to a dedicated art
-pipeline host rather than paying for GitHub LFS packs.
