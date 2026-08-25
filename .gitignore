@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------------------
+# Thunderbird — files that never belong in the repo
+# ---------------------------------------------------------------------------
+
+# --- Render output & image sequences ---------------------------------------
+# Renders are reproducible from the scene files. Keeping them out is what
+# stops this repo from blowing through GitHub's LFS storage quota.
+# The folder is kept in the repo (via .gitkeep) but its contents never are.
+/renders/*
+!/renders/.gitkeep
+/output/
+/comps/output/
+**/playblasts/
+**/*.playblast
+**/Preview/
+
+# --- Simulation & render caches --------------------------------------------
+**/cache/
+**/caches/
+**/*_cache/
+*.bphys
+*.bobj.gz
+*.sim
+*.nCache
+*.pdc
+*.mcfp
+
+# --- Maya -------------------------------------------------------------------
+*.ma.swatches
+*.mb.swatches
+**/incrementalSave/
+mayaLog
+mayaRender*.log
+*.ma.[0-9][0-9]*
+*.mb.[0-9][0-9]*
+
+# --- 3ds Max ----------------------------------------------------------------
+*.max.bak
+*.bak
+autoback/
+*.hold
+
+# --- Cinema 4D --------------------------------------------------------------
+*.c4d~
+**/tex/
+**/illum/
+
+# --- After Effects / Premiere ----------------------------------------------
+# AE auto-save copies and disk cache — regenerated, never share them.
+**/Adobe\ After\ Effects\ Auto-Save/
+**/Adobe\ Premiere\ Pro\ Auto-Save/
+*.aep.bk[0-9]
+*Auto-Save*/
+**/*.cfa
+**/*.pek
+**/*.prpreview
+Peak\ Files/
+Media\ Cache/
+Media\ Cache\ Files/
+Adobe\ Premiere\ Pro\ Preview\ Files/
+Adobe\ Premiere\ Pro\ Captured\ Video/
+Adobe\ Premiere\ Pro\ Audio\ Previews/
+
+# --- macOS ------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# --- Windows (for collaborators on PC) --------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Editors ----------------------------------------------------------------
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------------
+# Thunderbird — Git LFS + line-ending configuration
+#
+# Anything matched by an "filter=lfs" line is stored in Git LFS: the repo holds
+# a small text pointer, the real bytes live on the LFS server.
+#
+# The "lockable" flag marks files that CANNOT be merged. Run
+#   git lfs lock <file>     before you start working on one
+#   git lfs unlock <file>   when you push
+# Everyone else sees the file as read-only until you unlock it.
+# ---------------------------------------------------------------------------
+
+# Normalize line endings for ordinary text files (scripts, notes, configs).
+* text=auto
+
+# --- 3D scene files (unmergeable — always lock before editing) --------------
+*.ma      filter=lfs diff=lfs merge=lfs -text lockable
+*.mb      filter=lfs diff=lfs merge=lfs -text lockable
+*.max     filter=lfs diff=lfs merge=lfs -text lockable
+*.c4d     filter=lfs diff=lfs merge=lfs -text lockable
+*.blend   filter=lfs diff=lfs merge=lfs -text lockable
+*.lxo     filter=lfs diff=lfs merge=lfs -text lockable
+*.hip     filter=lfs diff=lfs merge=lfs -text lockable
+*.hipnc   filter=lfs diff=lfs merge=lfs -text lockable
+
+# --- After Effects / Premiere (unmergeable — always lock before editing) ----
+*.aep     filter=lfs diff=lfs merge=lfs -text lockable
+*.aepx    filter=lfs diff=lfs merge=lfs -text lockable
+*.aet     filter=lfs diff=lfs merge=lfs -text lockable
+*.prproj  filter=lfs diff=lfs merge=lfs -text lockable
+*.prel    filter=lfs diff=lfs merge=lfs -text lockable
+*.sesx    filter=lfs diff=lfs merge=lfs -text lockable
+*.mogrt   filter=lfs diff=lfs merge=lfs -text
+*.ffx     filter=lfs diff=lfs merge=lfs -text
+
+# --- Interchange & geometry caches -----------------------------------------
+*.fbx     filter=lfs diff=lfs merge=lfs -text
+*.obj     filter=lfs diff=lfs merge=lfs -text
+*.abc     filter=lfs diff=lfs merge=lfs -text
+*.usd     filter=lfs diff=lfs merge=lfs -text
+*.usda    filter=lfs diff=lfs merge=lfs -text
+*.usdc    filter=lfs diff=lfs merge=lfs -text
+*.usdz    filter=lfs diff=lfs merge=lfs -text
+*.vdb     filter=lfs diff=lfs merge=lfs -text
+*.ass     filter=lfs diff=lfs merge=lfs -text
+*.rs      filter=lfs diff=lfs merge=lfs -text
+*.vrmesh  filter=lfs diff=lfs merge=lfs -text
+*.mcx     filter=lfs diff=lfs merge=lfs -text
+*.dae     filter=lfs diff=lfs merge=lfs -text
+*.glb     filter=lfs diff=lfs merge=lfs -text
+*.gltf    filter=lfs diff=lfs merge=lfs -text
+*.ptc     filter=lfs diff=lfs merge=lfs -text
+
+# --- Textures & source art --------------------------------------------------
+*.psd     filter=lfs diff=lfs merge=lfs -text lockable
+*.psb     filter=lfs diff=lfs merge=lfs -text lockable
+*.ai      filter=lfs diff=lfs merge=lfs -text lockable
+*.exr     filter=lfs diff=lfs merge=lfs -text
+*.hdr     filter=lfs diff=lfs merge=lfs -text
+*.tga     filter=lfs diff=lfs merge=lfs -text
+*.tif     filter=lfs diff=lfs merge=lfs -text
+*.tiff    filter=lfs diff=lfs merge=lfs -text
+*.dds     filter=lfs diff=lfs merge=lfs -text
+*.png     filter=lfs diff=lfs merge=lfs -text
+*.jpg     filter=lfs diff=lfs merge=lfs -text
+*.jpeg    filter=lfs diff=lfs merge=lfs -text
+*.gif     filter=lfs diff=lfs merge=lfs -text
+*.bmp     filter=lfs diff=lfs merge=lfs -text
+*.iff     filter=lfs diff=lfs merge=lfs -text
+
+# --- Audio ------------------------------------------------------------------
+*.wav     filter=lfs diff=lfs merge=lfs -text
+*.aif     filter=lfs diff=lfs merge=lfs -text
+*.aiff    filter=lfs diff=lfs merge=lfs -text
+*.mp3     filter=lfs diff=lfs merge=lfs -text
+*.m4a     filter=lfs diff=lfs merge=lfs -text
+*.flac    filter=lfs diff=lfs merge=lfs -text
+
+# --- Video: reference, plates, footage --------------------------------------
+# Final renders live in /renders and are gitignored — see .gitignore.
+*.mov     filter=lfs diff=lfs merge=lfs -text
+*.mp4     filter=lfs diff=lfs merge=lfs -text
+*.m4v     filter=lfs diff=lfs merge=lfs -text
+*.avi     filter=lfs diff=lfs merge=lfs -text
+*.mxf     filter=lfs diff=lfs merge=lfs -text
+*.r3d     filter=lfs diff=lfs merge=lfs -text
+*.braw    filter=lfs diff=lfs merge=lfs -text
+
+# --- Fonts & archives -------------------------------------------------------
+*.otf     filter=lfs diff=lfs merge=lfs -text
+*.ttf     filter=lfs diff=lfs merge=lfs -text
+*.ttc     filter=lfs diff=lfs merge=lfs -text
+*.zip     filter=lfs diff=lfs merge=lfs -text
+*.7z      filter=lfs diff=lfs merge=lfs -text
+*.rar     filter=lfs diff=lfs merge=lfs -text
